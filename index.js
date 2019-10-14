@@ -15,13 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(jokeData => joke = jokeData.joke)
   }
 
-  form.addEventListener('submit', (event) => {
+  // form.addEventListener('submit', (event) => {
 
-    if(username === "") return;
-    fetchJoke()
+  //   if(username === "") return;
+  //   fetchJoke()
+  //   newJokeLi.innerHTML = `
+  //   <span class="username">${username} says:</span> ${joke}
+  //   `
+  //   jokeList.appendChild(newJokeLi)
+  // })
+
+  
+
+   form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    if(username === "") {
+      fetchJoke()
     newJokeLi.innerHTML = `
     <span class="username">${username} says:</span> ${joke}
     `
     jokeList.appendChild(newJokeLi)
+    }
+    
+    
   })
+
 })
